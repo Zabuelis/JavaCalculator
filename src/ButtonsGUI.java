@@ -1,4 +1,6 @@
 
+import java.awt.Font;
+
 import javax.swing.JButton;
 
 public class ButtonsGUI {
@@ -6,6 +8,8 @@ public class ButtonsGUI {
     private JButton[] actButtons;
     private JButton addButton, subButton, mulButton, divButton;
     private JButton decButton, eqButton, delButton, clrButton, negButton;
+
+    private Font font = new Font("Aptos(Body)", Font.BOLD, 30);
     
     public ButtonsGUI() {
         numButtons = new JButton[10];
@@ -33,6 +37,20 @@ public class ButtonsGUI {
         actButtons[6] = delButton;
         actButtons[7] = clrButton;
         actButtons[8] = negButton;
+
+        for(int i = 0; i < 9; i++){
+            actButtons[i].setFont(font);
+            actButtons[i].setFocusable(false);
+        }
+
+        for(int i = 0; i < 10; i++){
+            numButtons[i].setFont(font);
+            numButtons[i].setFocusable(false);
+        }
+
+        // actButtons[6].setBounds(150, 430, 100, 50);
+        // actButtons[7].setBounds(250, 430, 100, 50);
+        // actButtons[8].setBounds(50, 430, 100, 50);
         
     }
 
@@ -123,6 +141,7 @@ public class ButtonsGUI {
     public void setNegButton(JButton negButton) {
         this.negButton = negButton;
     }
+
 
 }
 

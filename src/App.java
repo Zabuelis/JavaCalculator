@@ -7,8 +7,7 @@
 //Tested on Visual Studio Code IDE, Windows 64bit OS
 
 public class App {
-
     public static void main(String[] args){
-        new CalculatorGUI();
+        new FrameGUI();
     }
 }

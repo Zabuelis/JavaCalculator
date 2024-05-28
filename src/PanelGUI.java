@@ -1,4 +1,3 @@
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,31 +7,28 @@ import javax.swing.JPanel;
 
 public class PanelGUI implements ActionListener{
     private JPanel panel = new JPanel();
+
     private ButtonsGUI buttons = new ButtonsGUI();
 
-    private JButton actButtons[] = buttons.getActButtons();
-    private JButton numButtons[] = buttons.getNumButtons();
-
-    private Font font = new Font("Aptos(Body)", Font.BOLD, 30);
-
-    private DisplayGUI displayGUI = new DisplayGUI();
+    private DisplayGUI displayGUI;
 
     private Calculator calculator = new Calculator();
 
-    PanelGUI(){
+    PanelGUI(DisplayGUI displayGUI){
+        this.displayGUI = displayGUI;
+        
         panel.setBounds(50, 100, 300, 300);
         panel.setLayout(new GridLayout(4, 4, 10, 10));
 
+        JButton numButtons[] = buttons.getNumButtons();
+        JButton actButtons[] = buttons.getActButtons();
+
         for(int i = 0; i < 9; i++){
-            actButtons[i].setFont(font);
             actButtons[i].addActionListener(this);
-            actButtons[i].setFocusable(false);
         }
 
         for(int i = 0; i < 10; i++){
-            numButtons[i].setFont(font);
             numButtons[i].addActionListener(this);
-            numButtons[i].setFocusable(false);
         }
 
 
@@ -52,6 +48,8 @@ public class PanelGUI implements ActionListener{
         panel.add(numButtons[0]);
         panel.add(actButtons[4]);
         panel.add(actButtons[3]);
+
+
     }
 
     public JPanel getPanel() {
