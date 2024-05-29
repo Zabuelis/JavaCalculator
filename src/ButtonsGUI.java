@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -12,11 +13,12 @@ public class ButtonsGUI {
     private Font font = new Font("Aptos(Body)", Font.BOLD, 30);
     
     public ButtonsGUI() {
+        //creating buttons for the numbers
         numButtons = new JButton[10];
         for(int i = 0; i < 10; i++){
             numButtons[i] = new JButton(String.valueOf(i));
         }
-
+        //creating different action buttons
         addButton = new JButton("+");
         subButton = new JButton("-");
         mulButton = new JButton("*");
@@ -27,6 +29,7 @@ public class ButtonsGUI {
         clrButton = new JButton("Clr");
         negButton = new JButton("(-)");
 
+        //adding action buttons to array
         actButtons = new JButton[9];
         actButtons[0] = addButton;
         actButtons[1] = subButton;
@@ -38,19 +41,25 @@ public class ButtonsGUI {
         actButtons[7] = clrButton;
         actButtons[8] = negButton;
 
+        //setting specific font for the buttons
         for(int i = 0; i < 9; i++){
             actButtons[i].setFont(font);
+            actButtons[i].setBackground(Color.decode("#FBEAEB"));
+            actButtons[i].setForeground(Color.BLACK);
             actButtons[i].setFocusable(false);
         }
 
         for(int i = 0; i < 10; i++){
             numButtons[i].setFont(font);
+            numButtons[i].setBackground(Color.WHITE);
+            numButtons[i].setForeground(Color.BLACK);
             numButtons[i].setFocusable(false);
         }
 
-        // actButtons[6].setBounds(150, 430, 100, 50);
-        // actButtons[7].setBounds(250, 430, 100, 50);
-        // actButtons[8].setBounds(50, 430, 100, 50);
+        //setting locations for certain buttons
+        actButtons[6].setBounds(150, 430, 100, 50);
+        actButtons[7].setBounds(250, 430, 100, 50);
+        actButtons[8].setBounds(50, 430, 100, 50);
         
     }
 

@@ -6,6 +6,7 @@ public class Calculator {
     Calculator(){}
 
     public void calculation(){
+
         switch (op) {
             case '+':
                 res = num1 + num2;
@@ -25,12 +26,9 @@ public class Calculator {
             default:
                 break;
         }
+        
         num1=res;
     }
-
-
-
-
 
     public double getNum1() {
         return num1;

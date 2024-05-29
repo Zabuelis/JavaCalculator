@@ -1,53 +1,55 @@
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class PanelGUI implements ActionListener{
-    private JPanel panel = new JPanel();
+    private JPanel panel;
 
-    private ButtonsGUI buttons = new ButtonsGUI();
+    private ButtonsGUI buttons;
 
     private DisplayGUI displayGUI;
 
     private Calculator calculator = new Calculator();
 
-    PanelGUI(DisplayGUI displayGUI){
+    PanelGUI(DisplayGUI displayGUI, ButtonsGUI buttonsGUI){
         this.displayGUI = displayGUI;
+        this.buttons = buttonsGUI;
+        panel = new JPanel();
         
+        //creating fixed layout for the panel
         panel.setBounds(50, 100, 300, 300);
+        panel.setBackground(Color.decode("#8AAAE5"));
         panel.setLayout(new GridLayout(4, 4, 10, 10));
 
-        JButton numButtons[] = buttons.getNumButtons();
-        JButton actButtons[] = buttons.getActButtons();
-
+        //implementing action listeners for the buttons
         for(int i = 0; i < 9; i++){
-            actButtons[i].addActionListener(this);
+            buttonsGUI.getActButtons()[i].addActionListener(this);
         }
 
         for(int i = 0; i < 10; i++){
-            numButtons[i].addActionListener(this);
+            buttonsGUI.getNumButtons()[i].addActionListener(this);
         }
 
-
-        panel.add(numButtons[1]);
-        panel.add(numButtons[2]);
-        panel.add(numButtons[3]);
-        panel.add(actButtons[0]);
-        panel.add(numButtons[4]);
-        panel.add(numButtons[5]);
-        panel.add(numButtons[6]);
-        panel.add(actButtons[1]);
-        panel.add(numButtons[7]);
-        panel.add(numButtons[8]);
-        panel.add(numButtons[9]);
-        panel.add(actButtons[2]);
-        panel.add(actButtons[5]);
-        panel.add(numButtons[0]);
-        panel.add(actButtons[4]);
-        panel.add(actButtons[3]);
+        //adding number and action buttons to the panel
+        panel.add(buttonsGUI.getNumButtons()[1]);
+        panel.add(buttonsGUI.getNumButtons()[2]);
+        panel.add(buttonsGUI.getNumButtons()[3]);
+        panel.add(buttonsGUI.getActButtons()[0]);
+        panel.add(buttonsGUI.getNumButtons()[4]);
+        panel.add(buttonsGUI.getNumButtons()[5]);
+        panel.add(buttonsGUI.getNumButtons()[6]);
+        panel.add(buttonsGUI.getActButtons()[1]);
+        panel.add(buttonsGUI.getNumButtons()[7]);
+        panel.add(buttonsGUI.getNumButtons()[8]);
+        panel.add(buttonsGUI.getNumButtons()[9]);
+        panel.add(buttonsGUI.getActButtons()[2]);
+        panel.add(buttonsGUI.getActButtons()[5]);
+        panel.add(buttonsGUI.getNumButtons()[0]);
+        panel.add(buttonsGUI.getActButtons()[4]);
+        panel.add(buttonsGUI.getActButtons()[3]);
 
 
     }
